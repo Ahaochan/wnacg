@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<url>
+    <Node
+        Key = "www_com_mobile"
+        ReadTime = "5000"
+        User_Agent = "UCWEB/2.0 (Java; U; MIDP-2.0; en-US; nokia6300) U2/1.0.0 UCBrowser/8.6.0.202 U2/1.0.0 Mobile"
+        Net_Type = "GET"
+        Url = "http://www.wnacg.com"
+        Expires="300" />
+    <Node
+        Key = "www_org_mobile"
+        ReadTime = "5000"
+        User_Agent = "UCWEB/2.0 (Java; U; MIDP-2.0; en-US; nokia6300) U2/1.0.0 UCBrowser/8.6.0.202 U2/1.0.0 Mobile"
+        Net_Type = "GET"
+        Url = "http://www.wnacg.org"
+        Expires="300"/>
+    <Node
+        Key = "m_com_mobile"
+        ReadTime = "5000"
+        User_Agent = "UCWEB/2.0 (Java; U; MIDP-2.0; en-US; nokia6300) U2/1.0.0 UCBrowser/8.6.0.202 U2/1.0.0 Mobile"
+        Net_Type = "GET"
+        Url = "http://m.wnacg.com"
+        Expires="300"/>
+    <Node
+        Key = "m_org_mobile"
+        ReadTime = "5000"
+        User_Agent = "UCWEB/2.0 (Java; U; MIDP-2.0; en-US; nokia6300) U2/1.0.0 UCBrowser/8.6.0.202 U2/1.0.0 Mobile"
+        Net_Type = "GET"
+        Url = "http://m.wnacg.org"
+        Expires="300"/>
+
+
+    <Node
+        Key = "www_com_desktop"
+        ReadTime = "5000"
+        User_Agent = "Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US; Desktop) AppleWebKit/534.13 (KHTML, like Gecko) UCBrowser/8.9.0.25"
+        Net_Type = "GET"
+        Url = "http://www.wnacg.com"
+        Expires="300" />
+    <Node
+        Key = "www_org_desktop"
+        ReadTime = "5000"
+        User_Agent = "Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US; Desktop) AppleWebKit/534.13 (KHTML, like Gecko) UCBrowser/8.9.0.25"
+        Net_Type = "GET"
+        Url = "http://www.wnacg.org"
+        Expires="300"/>
+    <Node
+        Key = "m_com_desktop"
+        ReadTime = "5000"
+        User_Agent = "Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US; Desktop) AppleWebKit/534.13 (KHTML, like Gecko) UCBrowser/8.9.0.25"
+        Net_Type = "GET"
+        Url = "http://m.wnacg.com"
+        Expires="300"/>
+    <Node
+        Key = "m_org_desktop"
+        ReadTime = "5000"
+        User_Agent = "Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US; Desktop) AppleWebKit/534.13 (KHTML, like Gecko) UCBrowser/8.9.0.25"
+        Net_Type = "GET"
+        Url = "http://m.wnacg.org"
+        Expires="300"/>
+</url>

@@ -1,0 +1,100 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorPrimary">@android:color/white</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <!--弹出大图的动画-->
+    <style name="popup_animation">
+        <item name="android:windowEnterAnimation">@anim/popup_in</item>
+        <item name="android:windowExitAnimation">@anim/popup_out</item>
+    </style>
+
+    <!--主页板块子组件-->
+    <!--漫画缩略图style-->
+    <style name="Plant_Comic_thumbnail">
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_height">90dp</item>
+        <item name="android:layout_width">65dp</item>
+        <item name="android:scaleType">fitXY</item>
+        <item name="android:src">@drawable/ic_loading</item>
+    </style>
+    <!--漫画主标题style-->
+    <style name="Plant_Comic_main_title">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:singleLine">true</item>
+    </style>
+    <!--漫画副标题style-->
+    <style name="Plant_Comic_sub_title">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:singleLine">true</item>
+    </style>
+    <!--主页板块子组件-->
+
+
+
+
+    <!--漫画ListView子组件-->
+    <!--漫画缩略图style-->
+    <style name="List_Comic_thumbnail">
+        <item name="android:layout_marginLeft">3dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:scaleType">fitXY</item>
+    </style>
+    <!--漫画主标题style-->
+    <style name="List_Comic_main_title">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:singleLine">true</item>
+    </style>
+    <!--漫画副标题style-->
+    <style name="List_Comic_sub_title">
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:singleLine">true</item>
+    </style>
+    <!--漫画ListView子组件-->
+
+    <style name="pager_radio_button">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@null</item>
+        <item name="android:button">@null</item>
+        <item name="android:drawablePadding">3dp</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textColor">@color/gray</item>"
+    </style>
+    
+    <style name="image_text_button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="itb_text_size">12sp</item>
+        <item name="itb_icon_position">top</item>
+        <item name="itb_icon_size">24dp</item>
+        <item name="itb_bg">@color/opacity</item>
+        <item name="itb_bg_pressed">@color/opacity_black</item>
+    </style>
+</resources>

@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">wnacg</string>
+    <string name="web_name">EX漫画</string>
+
+
+    <string name="page_home">首页</string>
+        <string name="page_home_menu_search">查找</string>
+
+    <string-array name="plant_name">
+        <item>最新更新</item>
+        <item>同人志</item>
+        <item>单行本</item>
+        <item>杂志</item>
+    </string-array>
+
+    <string name="page_find">发现</string>
+    <string name="page_library">书架</string>
+    <string name="page_myself">我的</string>
+
+
+    <string name="Comic_main_title">漫画主标题</string>
+    <string name="Comic_num">页数</string>
+    <string name="Comic_time">创建时间</string>
+
+
+    <string name="loading">正在加载中...</string>
+    <string name="GFW_warning">被墙了!!!</string>
+    <string name="Connect_warning">上不了网!!!</string>
+    <string name="reLoading">重新加载</string>
+
+</resources>

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.v7.widget.RecyclerView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentTop="true"
+            android:gravity="center_vertical"
+            android:background="@color/opacity_black">
+            <ImageButton
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@color/opacity"
+                android:src="@drawable/ic_back" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="35sp"
+                android:textColor="@color/white"
+                android:text="漫画标题"/>
+            <com.dxjia.library.ImageTextButton
+                android:id="@+id/detail_btn"
+                style="@style/image_text_button"
+                app:itb_text="详情"
+                app:itb_icon="@drawable/ic_collect"/>
+
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:gravity="center_vertical"
+            android:background="@color/opacity_black">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="888"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="/"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="888"/>
+            </LinearLayout>
+
+            <android.support.v7.widget.AppCompatSeekBar
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:progress="0"
+                />
+            <com.dxjia.library.ImageTextButton
+                style="@style/image_text_button"
+                app:itb_text="屏幕方向"
+                app:itb_icon="@drawable/ic_collect"/>
+            <com.dxjia.library.ImageTextButton
+                style="@style/image_text_button"
+                app:itb_text="翻页方向"
+                app:itb_icon="@drawable/ic_collect"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_alignTop="@+id/rightLayout"
+            android:layout_alignBottom="@+id/rightLayout"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:background="@color/opacity_black"
+            android:gravity="center_horizontal"
+            >
+            <com.h6ah4i.android.widget.verticalseekbar.VerticalSeekBarWrapper
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginTop="20dp"
+                >
+                <com.h6ah4i.android.widget.verticalseekbar.VerticalSeekBar
+                    android:id="@+id/mySeekBar"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:seekBarRotation="CW270" />
+            </com.h6ah4i.android.widget.verticalseekbar.VerticalSeekBarWrapper>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:layout_marginBottom="10dp"
+                android:text="亮度"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/rightLayout"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="@color/opacity_black"
+            android:gravity="center_horizontal">
+            <com.dxjia.library.ImageTextButton
+                android:id="@+id/down_btn"
+                style="@style/image_text_button"
+                app:itb_text="下载"
+                app:itb_icon="@drawable/ic_download"/>
+            <com.dxjia.library.ImageTextButton
+                android:id="@+id/share_btn"
+                style="@style/image_text_button"
+                app:itb_text="分享"
+                app:itb_icon="@drawable/ic_share"/>
+            <com.dxjia.library.ImageTextButton
+                android:id="@+id/collect_btn"
+                style="@style/image_text_button"
+                app:itb_text="收藏"
+                app:itb_icon="@drawable/ic_collect"/>
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+
+</FrameLayout>

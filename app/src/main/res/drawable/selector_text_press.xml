@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_enabled="true" android:state_pressed="true" android:drawable="@color/blue"/>
+
+    <item android:state_accelerated="true" android:drawable="@color/yellow"/>
+    <item android:state_activated="true" android:drawable="@color/aqua"/>
+    <item android:state_active="true" android:drawable="@color/green"/>
+    <item android:state_checkable="true" android:drawable="@color/colorAccent"/>
+    <item android:state_checked="true" android:drawable="@color/red"/>
+    <item android:state_drag_can_accept="true" android:drawable="@color/red"/>
+    <item android:state_drag_hovered="true" android:drawable="@color/red"/>
+    <item android:state_enabled="true" android:drawable="@color/red"/>
+    <item android:state_first="true" android:drawable="@color/red"/>
+    <item android:state_focused="true" android:drawable="@color/red"/>
+    <item android:state_last="true" android:drawable="@color/red"/>
+    <item android:state_middle="true" android:drawable="@color/red"/>
+    <item android:state_pressed="true" android:drawable="@color/red"/>
+
+    <item android:state_hovered="true" android:drawable="@color/red"/>
+    <item android:state_selected="true" android:drawable="@color/red"/>
+    <item android:state_single="true" android:drawable="@color/red"/>
+    <item android:state_window_focused="true" android:drawable="@color/red"/>
+    <item android:drawable="@color/black"/>
+</selector>
