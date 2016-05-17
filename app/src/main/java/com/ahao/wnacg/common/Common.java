@@ -23,16 +23,7 @@ public class Common {
 
 
     public final static int HOME_PLANT_NUM = 4;
-        public final static int PLANT_LATEST       = 0;
-        public final static int PLANT_DOUJIN       = 1;
-        public final static int PLANT_TANKOUBON    = 2;
-        public final static int PLANT_MAGAZINE     = 3;
-
         public final static int PLANT_IMAGE_NUM    = 3;
-            public final static int PLANT_IMAGE_ONE    = 0;
-            public final static int PLANT_IMAGE_TWO    = 1;
-            public final static int PLANT_IMAGE_THREE  = 2;
-
 
     public final static String COMIC_DATA = "ComicData";
 

@@ -16,7 +16,7 @@ import butterknife.BindView;
 /**
  * Created by Avalon on 2016/5/2.
  */
-public class PagerFindFragment extends PagerAbstractFragment {
+public class PagerFindFragment extends ComBaseFragment {
     public final static String className = "PagerFindFragment";
     @BindView(R.id.toolbar) Toolbar toolbar;
 
@@ -47,6 +47,11 @@ public class PagerFindFragment extends PagerAbstractFragment {
             Log.e(className, "初始化ToolBar失败");
             e.printStackTrace();
         }
+    }
+
+    @Override
+    protected void initView() {
+
     }
 
     @Override

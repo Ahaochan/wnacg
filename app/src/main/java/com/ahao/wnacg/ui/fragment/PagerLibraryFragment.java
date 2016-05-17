@@ -17,7 +17,7 @@ import butterknife.BindView;
 /**
  * Created by Avalon on 2016/5/2.
  */
-public class PagerLibraryFragment extends PagerAbstractFragment {
+public class PagerLibraryFragment extends ComBaseFragment {
     public final static String className = "PagerLibraryFragment";
     @BindView(R.id.toolbar) Toolbar toolbar;
 
@@ -50,6 +50,11 @@ public class PagerLibraryFragment extends PagerAbstractFragment {
         }
     }
 
+
+    @Override
+    protected void initView() {
+
+    }
 
     @Override
     protected void setListener() {

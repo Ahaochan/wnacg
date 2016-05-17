@@ -3,7 +3,7 @@ package com.ahao.wnacg;
 import android.app.Application;
 
 import com.ahao.wnacg.util.ComicDataManager;
-import com.ahao.wnacg.util.GlideEngine;
+import com.ahao.wnacg.engine.GlideEngine;
 
 /**
  * Created by Avalon on 2016/5/9.

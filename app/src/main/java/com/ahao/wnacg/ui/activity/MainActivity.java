@@ -20,7 +20,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends ComBaseActivity {
     final static private String className = MainActivity.class.getSimpleName();
     List<Fragment> pageFragments;
     MainPagerAdapter mainPagerAdapter;
@@ -34,7 +34,7 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        Log.i("主Activity","进入成功");
+        Log.i(className,"进入成功");
         initView();
         setListener();
     }

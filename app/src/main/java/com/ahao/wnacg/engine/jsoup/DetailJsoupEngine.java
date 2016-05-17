@@ -18,8 +18,6 @@ import java.util.List;
 /**
  * Created by Avalon on 2016/5/14.
  * <p/>
- * <p/>
- * <p/>
  * 根据传入的String类型的html,进行获取数据
  * <p/>
  * 已知信息:
@@ -43,15 +41,13 @@ import java.util.List;
 public class DetailJsoupEngine {
     private final static String className = DetailJsoupEngine.class.getSimpleName();
 
-    private DetailJsoupEngine() {
-    }
+    private DetailJsoupEngine() {}
 
     private static ComicData comicData;
 
-    public static ComicData UpdateComicData(String homeUrl, String html, ComicData comic) {
+    public static ComicData UpdateComicData(String html, ComicData comic) {
         comicData = comic;
 
-        Log.i(className, "开始爬");
         Document doc = Jsoup.parse(html);
 //        Log.i(className, doc.toString());
 
@@ -74,11 +70,6 @@ public class DetailJsoupEngine {
 //            填充简介和作者信息
 //            Log.i("DetailThread", others.get(i).text());
 //        }
-
-        Log.i(className, comicData.getTag().toString());
-        Log.i(className, comicData.getIntroduce());
-        Log.i(className, comicData.getUpdater());
-        Log.i(className, "爬完了");
         return comicData;
     }
 

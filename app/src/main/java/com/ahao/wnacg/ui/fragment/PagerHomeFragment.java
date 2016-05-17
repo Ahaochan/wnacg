@@ -1,7 +1,7 @@
 package com.ahao.wnacg.ui.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.os.Message;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,20 +14,18 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.ahao.wnacg.R;
 import com.ahao.wnacg.common.Common;
-import com.ahao.wnacg.common.MSGWhat;
 import com.ahao.wnacg.engine.LoadDataEngine;
 import com.ahao.wnacg.engine.jsoup.HomeJsoupEngine;
 import com.ahao.wnacg.entity.ComicData;
+import com.ahao.wnacg.ui.activity.SearchActivity;
 import com.ahao.wnacg.ui.handler.MyHandler;
 import com.ahao.wnacg.ui.imageView.ComicImage;
 import com.ahao.wnacg.ui.popupwindow.ImagePopup;
 import com.ahao.wnacg.util.ComicDataManager;
-import com.ahao.wnacg.util.GlideEngine;
-import com.ahao.wnacgnet.net.RequestCallback;
+import com.ahao.wnacg.engine.GlideEngine;
 
 import butterknife.BindView;
 import butterknife.BindViews;
@@ -37,7 +35,7 @@ import butterknife.ButterKnife;
 /**
  * Created by Avalon on 2016/5/2.
  */
-public class PagerHomeFragment extends PagerAbstractFragment {
+public class PagerHomeFragment extends NetBaseFragment {
     public final static String className = PagerHomeFragment.class.getSimpleName();
 
     View rootView;
@@ -73,10 +71,7 @@ public class PagerHomeFragment extends PagerAbstractFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setHandler();
         Log.i(className, "onCreate");
-
-
     }
 
     @Override
@@ -99,7 +94,7 @@ public class PagerHomeFragment extends PagerAbstractFragment {
     @Override
     protected void loadDataFromNet() {
         LoadDataEngine.getInstance().loadData(getActivity(),
-                Common.home_m_org_mobile, new RequestCallback() {
+                Common.home_m_org_mobile, new AbstractRequestCallback() {
                     @Override
                     public void onSuccess(String content) {
                         String[] plantName = getActivity().getResources().getStringArray(R.array.plant_name);
@@ -118,17 +113,6 @@ public class PagerHomeFragment extends PagerAbstractFragment {
                                 ComicDataManager.putComicData(comicDatas[i][j].getId(), comicDatas[i][j]);
                             }
                         }
-                    }
-
-                    @Override
-                    public void onFail(final String errorMessage) {
-                        Log.e(className, errorMessage);
-                        handler.post(new Runnable() {
-                            @Override
-                            public void run() {
-                                Toast.makeText(getActivity(), errorMessage, Toast.LENGTH_SHORT).show();
-                            }
-                        });
                     }
                 });
     }
@@ -205,40 +189,12 @@ public class PagerHomeFragment extends PagerAbstractFragment {
                 switch (id) {
                     case R.id.action_edit:
 //                        ConnectUtil.inNet(getActivity());
+                        startActivity(new Intent(getActivity(), SearchActivity.class));
                         break;
                 }
                 return true;
             }
         });
-    }
-
-
-    @Override
-    protected void setHandler() {
-        super.setHandler();
-        handler = new MyHandler(getContext()) {
-            @Override
-            public void handleMessage(Message msg) {
-                super.handleMessage(msg);
-                Log.i("homeHandler", "调用子类handler");
-                switch (msg.what) {
-                    case MSGWhat.RELOAD_HOME:
-//                        ComicData[][] comicDatas = (ComicData[][]) msg.obj;
-//                        String[] plantName = getActivity().getResources().getStringArray(R.array.plant_name);
-//                        initView(true);
-//                        for (int i = 0; i < Common.HOME_PLANT_NUM; i++) {
-//                            plantTitle[i].setText(plantName[i]);
-//                            for (int j = 0; j < Common.PLANT_IMAGE_NUM; j++) {
-//                                imageManager.initImageView(comicDatas[i][j].getThumbnailURL(), plantImage[i][j]);
-//                                plantImageMainTitle[i][j].setText(comicDatas[i][j].getTitle());
-//                                plantImageSubTitle[i][j].setText(comicDatas[i][j].getTimeAndPic());
-//                                plantImage[i][j].setParam(comicDatas[i][j]);
-//                            }
-//                        }
-                        break;
-                }
-            }
-        };
     }
 
     @Override

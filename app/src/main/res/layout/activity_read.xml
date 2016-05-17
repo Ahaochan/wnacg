@@ -2,16 +2,19 @@
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/read_parent_layout"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
     </android.support.v7.widget.RecyclerView>
 
     <RelativeLayout
+        android:id="@+id/read_setting_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <LinearLayout
@@ -22,11 +25,13 @@
             android:gravity="center_vertical"
             android:background="@color/opacity_black">
             <ImageButton
+                android:id="@+id/back_btn"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:background="@color/opacity"
                 android:src="@drawable/ic_back" />
             <TextView
+                android:id="@+id/comic_title_text"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -60,6 +65,7 @@
                 android:layout_marginEnd="5dp"
                 android:layout_marginRight="5dp">
                 <TextView
+                    android:id="@+id/current_pic_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="888"/>
@@ -68,22 +74,26 @@
                     android:layout_height="wrap_content"
                     android:text="/"/>
                 <TextView
+                    android:id="@+id/all_pic_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="888"/>
             </LinearLayout>
 
             <android.support.v7.widget.AppCompatSeekBar
+                android:id="@+id/process_seek"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:progress="0"
                 />
             <com.dxjia.library.ImageTextButton
+                android:id="@+id/screen_btn"
                 style="@style/image_text_button"
                 app:itb_text="屏幕方向"
                 app:itb_icon="@drawable/ic_collect"/>
             <com.dxjia.library.ImageTextButton
+                android:id="@+id/pager_btn"
                 style="@style/image_text_button"
                 app:itb_text="翻页方向"
                 app:itb_icon="@drawable/ic_collect"/>
@@ -106,7 +116,7 @@
                 android:layout_marginTop="20dp"
                 >
                 <com.h6ah4i.android.widget.verticalseekbar.VerticalSeekBar
-                    android:id="@+id/mySeekBar"
+                    android:id="@+id/light_seek"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     app:seekBarRotation="CW270" />

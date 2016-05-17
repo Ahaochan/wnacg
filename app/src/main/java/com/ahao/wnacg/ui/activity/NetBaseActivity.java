@@ -8,14 +8,17 @@ import com.ahao.wnacgnet.net.RequestCallback;
 /**
  * Created by Avalon on 2016/5/13.
  */
-public abstract class WnacgBaseActivity extends BaseActivity {
+public abstract class NetBaseActivity extends BaseActivity {
 
     public abstract class AbstractRequestCallback implements RequestCallback {
         public abstract void onSuccess(String content);
         public void onFail(String errorMessage){
-            Toast.makeText(WnacgBaseActivity.this, "网络异常", Toast.LENGTH_SHORT).show();
+            Toast.makeText(NetBaseActivity.this, "网络异常", Toast.LENGTH_SHORT).show();
         }
     }
+
+    @Override
+    protected void initView() {}
 
     protected abstract void loadDataFromNet();
 }

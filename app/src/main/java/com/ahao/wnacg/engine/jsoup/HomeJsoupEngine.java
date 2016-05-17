@@ -39,10 +39,9 @@ public class HomeJsoupEngine {
     private static int CHILD_NUM = 3;//每个板块3个漫画
 
     private static ComicData[][] comicDatas = new ComicData[PLANT_NUM][CHILD_NUM];
-    ;
 
-    private HomeJsoupEngine() {
-    }
+
+    private HomeJsoupEngine() {}
 
     public static ComicData[][] getComicDatas(String homeUrl, String html) {
         Document doc = Jsoup.parse(html);

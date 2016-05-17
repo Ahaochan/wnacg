@@ -64,6 +64,7 @@ public class HttpRequest implements Runnable {
     @Override
     public void run() {
         try {
+            Log.i(className, getUrl());
             request = new Request.Builder().url(getUrl())
                     .header("User-Agent", urlData.getUserAgent())
                     .build();
@@ -72,7 +73,7 @@ public class HttpRequest implements Runnable {
 
             if(requestCallback!=null) {
                 if (response.isSuccessful()) {
-                    Log.i("HomeJsoup", urlData.toString());
+
                     final String html = response.body().string();
                     handler.post(new Runnable() {
                         @Override
@@ -91,6 +92,12 @@ public class HttpRequest implements Runnable {
             }
 
         } catch (IOException e) {
+            handler.post(new Runnable() {
+                @Override
+                public void run() {
+                    requestCallback.onFail("网络异常");
+                }
+            });
             Log.e(className, "IOException");
             e.printStackTrace();
         }

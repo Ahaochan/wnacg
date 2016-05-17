@@ -135,13 +135,13 @@
                     android:orientation="vertical">
 
                     <Button
-                        android:id="@+id/comic_read_button"
+                        android:id="@+id/read_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="开始阅读" />
 
                     <Button
-                        android:id="@+id/download_button"
+                        android:id="@+id/down_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="下载本子" />

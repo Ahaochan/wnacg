@@ -10,15 +10,13 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.ahao.wnacg.R;
 import com.ahao.wnacg.common.Common;
 import com.ahao.wnacg.engine.LoadDataEngine;
 import com.ahao.wnacg.engine.jsoup.DetailJsoupEngine;
 import com.ahao.wnacg.entity.ComicData;
-import com.ahao.wnacg.util.GlideEngine;
-import com.ahao.wnacgnet.net.RequestCallback;
+import com.ahao.wnacg.engine.GlideEngine;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -27,7 +25,7 @@ import uk.co.senab.photoview.PhotoView;
 /**
  * Created by Avalon on 2016/5/7.
  */
-public class DetailActivity extends WnacgBaseActivity {
+public class DetailActivity extends NetBaseActivity {
     final static String className = DetailActivity.class.getSimpleName();
 
     @BindView(R.id.head_image) PhotoView headImageView;
@@ -39,8 +37,8 @@ public class DetailActivity extends WnacgBaseActivity {
     @BindView(R.id.comic_introduce_text) TextView introduceText;
     @BindView(R.id.comic_time_text)      TextView timeText;
 
-    @BindView(R.id.comic_read_button) Button readButton;
-    @BindView(R.id.download_button)   Button downLoadButton;
+    @BindView(R.id.read_button) Button readButton;
+    @BindView(R.id.down_button)   Button downLoadButton;
 
     @BindView(R.id.comic_tag_layout) LinearLayout tagLayout;
 
@@ -67,19 +65,13 @@ public class DetailActivity extends WnacgBaseActivity {
     @Override
     protected void loadDataFromNet() {
         LoadDataEngine.getInstance().loadData(DetailActivity.this, Common.home_m_org_mobile,
-                LoadDataEngine.getParamsOfPhotos(comicData.getId()), new RequestCallback() {
+                LoadDataEngine.getParamsOfPhotos(comicData.getId()), new AbstractRequestCallback() {
                     @Override
                     public void onSuccess(String content) {
                         Log.i(className, "成功连接");
-                        comicData = DetailJsoupEngine.UpdateComicData(Common.m_wnacg_org, content, comicData);
+                        comicData = DetailJsoupEngine.UpdateComicData(content, comicData);
                         initView(true);
                         progressDialog.dismiss();
-                    }
-
-                    @Override
-                    public void onFail(String errorMessage) {
-                        Log.e(className, "连接失败,"+errorMessage);
-                        Toast.makeText(DetailActivity.this, "网络异常", Toast.LENGTH_SHORT).show();
                     }
                 });
     }
