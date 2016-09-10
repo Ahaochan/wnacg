@@ -1,1 +1,1 @@
-include ':app', ':androidlib', ':wnacgnet'
+include ':app', ':androidlib'

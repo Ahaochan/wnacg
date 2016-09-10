@@ -1,21 +1,125 @@
 <resources>
 
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:textColorPrimary">@android:color/white</item>
+    <!--Indicating-->
+    <!--TextAppearance-->
+    <!--Image-->
+    <!--divider-->
+
+    <!--TabLayout-->
+    <!--FloatingActionMenu-->
+
+
+    <!--Indicating-->
+    <style name="Indicating">
+        <item name="indicatorHeight">1dp</item>
+        <item name="indicatorColor">@color/divider</item>
     </style>
 
-    <style name="AppTheme.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
+    <style name="Indicating.Dark">
+        <item name="indicatorColor">@color/divider_dark</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <!--TextAppearance-->
+    <style name="TextAppearance" parent="TextAppearance.AppCompat">
+        <item name="android:ellipsize">end</item>
+    </style>
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="TextAppearance.Dark">
+        <item name="android:textColor">@color/primary_text_dark</item>
+    </style>
+
+    <style name="TextAppearance.Light">
+        <item name="android:textColor">@color/primary_text_light</item>
+    </style>
+
+    <style name="TextAppearance.Dark.IconText">
+        <item name="android:layout_margin">@dimen/margin_iconText</item>
+        <item name="android:gravity">center_horizontal</item>
+    </style>
+
+    <style name="TextAppearance.NavTitle">
+        <item name="android:textColor">@color/primary_text_light</item>
+    </style>
+
+    <style name="TextAppearance.Light.CardTitle">
+        <item name="android:textSize">@dimen/text_little_small</item>
+    </style>
+
+    <style name="TextAppearance.Light.CardMessage">
+        <item name="android:textColor">@color/secondary_text_light</item>
+        <item name="android:textSize">@dimen/text_super_small</item>
+    </style>
+
+    <style name="TextAppearance.Dark.PlantTitle">
+        <item name="android:textSize"     >@dimen/text_medium</item>
+        <item name="android:background"   >@color/colorPrimary</item>
+        <item name="android:paddingLeft"  >@dimen/padding_plant_title_left</item>
+        <item name="android:paddingTop"   >@dimen/padding_plant_title_top</item>
+        <item name="android:paddingRight" >@dimen/padding_plant_title_right</item>
+        <item name="android:paddingBottom">@dimen/padding_plant_title_bottom</item>
+    </style>
+
+    <style name="TextAppearance.Light.PlantMore">
+        <item name="android:textSize"     >@dimen/text_little_small</item>
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:paddingRight">@dimen/padding_plant_more_right</item>
+    </style>
+
+    <style name="TextAppearance.Dark.GalleryTitle">
+        <item name="android:textSize">@dimen/text_little_large</item>
+    </style>
+
+    <!--Image-->
+    <style name="Image">
+    </style>
+    <style name="Image.Header">
+        <item name="android:layout_marginBottom">@dimen/margin_medium</item>
+    </style>
+
+    <style name="Image.Item">
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+    </style>
+
+    <style name="Image.Item.Albums">
+        <item name="android:scaleType">fitXY</item>
+        <item name="android:layout_margin">10dp</item>
+    </style>
+    <style name="Image.Item.Plant">
+        <item name="android:scaleType">fitXY</item>
+    </style>
+    <style name="Image.Item.Thumb">
+        <item name="android:scaleType">fitXY</item>
+        <item name="android:layout_margin">5dp</item>
+    </style>
+
+    <!--divider-->
+    <style name="Divider">
+        <item name="android:layout_width">match_parent</item>
+    </style>
+    <style name="Divider.Primary">
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+    <style name="Divider.Primary.Medium">
+        <item name="android:layout_height">3dp</item>
+    </style>
+
+
+    <!--TabLayout-->
+    <style name="TabLayout.InToolbar" parent="Base.Widget.Design.TabLayout">
+        <item name="tabIndicatorColor">@color/white</item>
+        <item name="tabIndicatorHeight">2dp</item>
+        <item name="tabPaddingStart">12dp</item>
+        <item name="tabPaddingEnd">12dp</item>
+    </style>
+
+    <!--FloatingActionMenu-->
+    <style name="FloatingActionMenu" >
+        <item name="android:background">@drawable/bg_fab_label</item>
+        <item name="android:textColor">@color/primary_text_dark</item>
+    </style>
+
 
     <!--弹出大图的动画-->
     <style name="popup_animation">
@@ -23,78 +127,4 @@
         <item name="android:windowExitAnimation">@anim/popup_out</item>
     </style>
 
-    <!--主页板块子组件-->
-    <!--漫画缩略图style-->
-    <style name="Plant_Comic_thumbnail">
-        <item name="android:layout_marginTop">5dp</item>
-        <item name="android:layout_height">90dp</item>
-        <item name="android:layout_width">65dp</item>
-        <item name="android:scaleType">fitXY</item>
-        <item name="android:src">@drawable/ic_loading</item>
-    </style>
-    <!--漫画主标题style-->
-    <style name="Plant_Comic_main_title">
-        <item name="android:textSize">15sp</item>
-        <item name="android:textColor">@color/black</item>
-        <item name="android:ellipsize">end</item>
-        <item name="android:singleLine">true</item>
-    </style>
-    <!--漫画副标题style-->
-    <style name="Plant_Comic_sub_title">
-        <item name="android:textSize">12sp</item>
-        <item name="android:textColor">@color/gray</item>
-        <item name="android:ellipsize">end</item>
-        <item name="android:singleLine">true</item>
-    </style>
-    <!--主页板块子组件-->
-
-
-
-
-    <!--漫画ListView子组件-->
-    <!--漫画缩略图style-->
-    <style name="List_Comic_thumbnail">
-        <item name="android:layout_marginLeft">3dp</item>
-        <item name="android:layout_marginRight">10dp</item>
-        <item name="android:layout_marginTop">5dp</item>
-        <item name="android:layout_marginBottom">5dp</item>
-        <item name="android:scaleType">fitXY</item>
-    </style>
-    <!--漫画主标题style-->
-    <style name="List_Comic_main_title">
-        <item name="android:textSize">15sp</item>
-        <item name="android:textColor">@color/black</item>
-        <item name="android:ellipsize">end</item>
-        <item name="android:singleLine">true</item>
-    </style>
-    <!--漫画副标题style-->
-    <style name="List_Comic_sub_title">
-        <item name="android:textSize">10sp</item>
-        <item name="android:textColor">@color/gray</item>
-        <item name="android:ellipsize">end</item>
-        <item name="android:singleLine">true</item>
-    </style>
-    <!--漫画ListView子组件-->
-
-    <style name="pager_radio_button">
-        <item name="android:layout_width">0dp</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_weight">1</item>
-        <item name="android:background">@null</item>
-        <item name="android:button">@null</item>
-        <item name="android:drawablePadding">3dp</item>
-        <item name="android:textSize">11sp</item>
-        <item name="android:gravity">center_horizontal</item>
-        <item name="android:textColor">@color/gray</item>"
-    </style>
-    
-    <style name="image_text_button">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="itb_text_size">12sp</item>
-        <item name="itb_icon_position">top</item>
-        <item name="itb_icon_size">24dp</item>
-        <item name="itb_bg">@color/opacity</item>
-        <item name="itb_bg_pressed">@color/opacity_black</item>
-    </style>
 </resources>

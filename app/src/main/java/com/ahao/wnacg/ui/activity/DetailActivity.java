@@ -1,119 +1,180 @@
 package com.ahao.wnacg.ui.activity;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
-import android.util.Log;
+import android.support.v4.app.ActivityOptionsCompat;
+import android.support.v4.widget.NestedScrollView;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.ahao.androidlib.adapter.recyclerView.CommonAdapter;
+import com.ahao.androidlib.adapter.recyclerView.ViewHolder;
+import com.ahao.androidlib.util.IntentUtils;
 import com.ahao.wnacg.R;
-import com.ahao.wnacg.common.Common;
-import com.ahao.wnacg.engine.LoadDataEngine;
-import com.ahao.wnacg.engine.jsoup.DetailJsoupEngine;
-import com.ahao.wnacg.entity.ComicData;
-import com.ahao.wnacg.engine.GlideEngine;
+import com.ahao.wnacg.entity.ComicEntity;
+import com.ahao.wnacg.presenter.IDetailPresenter;
+import com.ahao.wnacg.ui.activity.base.ComBaseActivity;
+import com.ahao.wnacg.ui.impl.IDetailView;
+import com.bumptech.glide.Glide;
+import com.zhy.view.flowlayout.FlowLayout;
+import com.zhy.view.flowlayout.TagAdapter;
+import com.zhy.view.flowlayout.TagFlowLayout;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import uk.co.senab.photoview.PhotoView;
 
 /**
  * Created by Avalon on 2016/5/7.
  */
-public class DetailActivity extends NetBaseActivity {
-    final static String className = DetailActivity.class.getSimpleName();
+public class DetailActivity extends ComBaseActivity implements IDetailView {
+    private static final String TAG = "DetailActivity";
 
-    @BindView(R.id.head_image) PhotoView headImageView;
-    @BindView(R.id.thumbnail_image) ImageView thumbnailImageView;
+    private static final String COMIC_DATA = "Comic_data";
 
-    @BindView(R.id.comic_title_text)     TextView TitleText;
-    @BindView(R.id.comic_updater_text)   TextView updaterText;
-    @BindView(R.id.comic_pager_num_text) TextView pagerNumText;
-    @BindView(R.id.comic_introduce_text) TextView introduceText;
-    @BindView(R.id.comic_time_text)      TextView timeText;
+    @BindView(R.id.detail_image_head)    PhotoView headImageView;
+    @BindView(R.id.detail_image_thumb)   ImageView thumbImageView;
+    @BindView(R.id.detail_scroll_layout) NestedScrollView scrollView;
 
-    @BindView(R.id.read_button) Button readButton;
-    @BindView(R.id.down_button)   Button downLoadButton;
+    @BindView(R.id.detail_text_title)     TextView titleText;
+    @BindView(R.id.detail_text_updater)   TextView updaterText;
+    @BindView(R.id.detail_text_pic)       TextView picText;
+    @BindView(R.id.detail_text_introduce) TextView introduceText;
+    @BindView(R.id.detail_text_time)      TextView timeText;
 
-    @BindView(R.id.comic_tag_layout) LinearLayout tagLayout;
+    @BindView(R.id.detail_btn_share)      TextView shareBtn;
+    @BindView(R.id.detail_btn_collection) TextView collectBtn;
+    @BindView(R.id.detail_btn_download)   TextView downloadBtn;
+    @BindView(R.id.detail_btn_read)       TextView readBtn;
 
-    Context context;
-    ComicData comicData;
-    ProgressDialog progressDialog;
+    @BindView(R.id.detail_tag_layout)    TagFlowLayout tagLayout;
+    @BindView(R.id.detail_rv_thumb)      RecyclerView thumbRecyclerView;
 
+    private Context mContext;
+    private ComicEntity mComicEntity;
+    private ProgressDialog mProgressDialog;
+    private IDetailPresenter mPresenter;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_comic_detail);
-        ButterKnife.bind(this);
-        Log.i(className,"进入Activity");
-        context = this;
-        comicData = (ComicData) getIntent().getSerializableExtra(Common.COMIC_DATA);
-
-
-        loadDataFromNet();
-        initView(false);
-        setListener();
+    protected int actLayoutId() {
+        return R.layout.act_detail;
     }
 
     @Override
-    protected void loadDataFromNet() {
-        LoadDataEngine.getInstance().loadData(DetailActivity.this, Common.home_m_org_mobile,
-                LoadDataEngine.getParamsOfPhotos(comicData.getId()), new AbstractRequestCallback() {
-                    @Override
-                    public void onSuccess(String content) {
-                        Log.i(className, "成功连接");
-                        comicData = DetailJsoupEngine.UpdateComicData(content, comicData);
-                        initView(true);
-                        progressDialog.dismiss();
-                    }
-                });
+    protected int toolbarId() {
+        return R.id.detail_toolbar;
     }
 
     @Override
-    protected void initView(boolean loaded) {
-        if(loaded){
-//            Log.i(className, "头图:"+comicData.getFirstPicURL());
-//            GlideEngine.init(DetailActivity.this, comicData.getFirstPicURL(), headImageView);
-            TitleText.setText(comicData.getTitle());
-            updaterText.setText(comicData.getUpdater());
-            pagerNumText.setText(String.valueOf(comicData.getPicNum()));
-            introduceText.setText(comicData.getIntroduce());
-            timeText.setText(comicData.getCreateTime());
+    protected void initView(Context context) {
+        super.initView(context);
 
-            for(int i = 0; i < comicData.getTag().size(); i++){
-                Button tagButton = new Button(this);
-                tagButton.setText(comicData.getTag().get(i));
-                tagLayout.addView(tagButton);
-            }
-        } else {
-            GlideEngine.init(DetailActivity.this, comicData.getThumbnailURL(), headImageView);
-            GlideEngine.init(DetailActivity.this, comicData.getThumbnailURL(), thumbnailImageView);
-            headImageView.setAllowParentInterceptOnEdge(false);
+        mContext = context;
+        mComicEntity = (ComicEntity) getIntent().getSerializableExtra(COMIC_DATA);
+        mPresenter = new IDetailPresenter(context, this, mComicEntity);
 
-            progressDialog = new ProgressDialog(this, ProgressDialog.STYLE_SPINNER);
-            progressDialog.setMessage("获取网络数据中...");
-            progressDialog.setCanceledOnTouchOutside(false);// 设置在点击Dialog外是否取消Dialog进度条
-            progressDialog.show();
-        }
+        mProgressDialog = new ProgressDialog(mContext, ProgressDialog.STYLE_SPINNER);
+        mProgressDialog.setMessage(mContext.getResources().getString(R.string.loading));
+        mProgressDialog.setCanceledOnTouchOutside(false);// 设置在点击Dialog外是否取消Dialog进度条
+        showLoading();
+
+        headImageView.setAllowParentInterceptOnEdge(false);
+
+        Glide.with(mContext).load(mComicEntity.getThumbUrl()).into(headImageView);
+        titleText.setText(mComicEntity.getTitle());
+        Glide.with(mContext).load(mComicEntity.getThumbUrl()).into(thumbImageView);
+        picText.setText(mComicEntity.getPicNum() + context.getString(R.string.unit_pic));
+        timeText.setText(mContext.getString(R.string.detail_create_time)+mComicEntity.getCreateTime());
+
+        thumbRecyclerView.setLayoutManager(new GridLayoutManager(mContext, 3));
+        thumbRecyclerView.setNestedScrollingEnabled(false);
+        thumbRecyclerView.setItemAnimator(new DefaultItemAnimator());
+
+        mPresenter.loadData();
     }
 
     @Override
-    protected void setListener(){
-        readButton.setOnClickListener(new View.OnClickListener() {
+    protected void setListener(Context context) {
+        shareBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DetailActivity.this, ReadActivity.class);
-                intent.putExtra(Common.COMIC_DATA, comicData);
-                startActivity(intent);
+                IntentUtils.shareString(mContext, R.string.intent_send_link, mComicEntity.getDetailUrl());
             }
         });
+
+        collectBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(mContext, "收藏"+mComicEntity.getAId(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        readBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                GalleryActivity.startAction(mContext, mComicEntity);
+            }
+        });
+
+        downloadBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                scrollView.scrollTo(0,0);
+            }
+        });
+    }
+
+    @Override
+    public void showLoading() {
+        mProgressDialog.show();
+    }
+
+    @Override
+    public void hideLoading() {
+        mProgressDialog.dismiss();
+    }
+
+    @Override
+    public void showDetail(ComicEntity comicEntity) {
+        this.mComicEntity = comicEntity;
+        updaterText.setText(comicEntity.getUpdater());
+        introduceText.setText(mContext.getString(R.string.detail_introduce)+comicEntity.getIntroduce());
+
+        tagLayout.setAdapter(new TagAdapter<String>(comicEntity.getTag()) {
+            @Override
+            public View getView(FlowLayout parent, int position, String s) {
+                TextView tagView = (TextView) LayoutInflater.from(mContext).inflate(R.layout.list_item_tag, parent, false);
+                tagView.setText(s);
+                return tagView;
+            }
+        });
+
+        thumbRecyclerView.setAdapter(new CommonAdapter<String>(mContext, R.layout.list_item_thumb,
+                comicEntity.getThumbUrlList()) {
+            @Override
+            protected void convert(ViewHolder holder, String url, int position) {
+                holder.setImage(R.id.img_thumb, url);
+            }
+        });
+
+        scrollView.scrollTo(0, 0);
+        scrollView.smoothScrollTo(0, 0);
+    }
+
+    public static void startAction(Context context, ComicEntity comicEntity, View view){
+        Intent intent = new Intent(context, DetailActivity.class);
+        intent.putExtra(COMIC_DATA, comicEntity);
+
+        ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(
+                (Activity) context, view, context.getString(R.string.pair_home2detail_image));
+        context.startActivity(intent, options.toBundle());
     }
 
 }

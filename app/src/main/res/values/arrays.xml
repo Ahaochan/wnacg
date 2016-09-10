@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="web_site_key">
+        <item>www.wnacg.com</item>
+        <item>www.wnacg.org</item>
+        <item>m.wnacg.com</item>
+        <item>m.wnacg.org</item>
+    </string-array>
+
+    <string-array name="web_site_value">
+        <item>www.wnacg.com</item>
+        <item>www.wnacg.org</item>
+        <item>m.wnacg.com</item>
+        <item>m.wnacg.org</item>
+    </string-array>
+</resources>

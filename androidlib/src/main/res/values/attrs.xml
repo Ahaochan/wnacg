@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="minScaleFactor" format="float"/>
+    <attr name="maxScaleFactor" format="float"/>
+    <attr name="autoScaleTime"  format="integer"/>
+    <declare-styleable name="GalleryView">
+        <attr name="minScaleFactor" />
+        <attr name="maxScaleFactor" />
+        <attr name="autoScaleTime"  />
+    </declare-styleable>
+
+    <attr name="indicatorHeight" format="dimension"/>
+    <attr name="indicatorColor" format="color"/>
+    <declare-styleable name="Indicating">
+        <attr name="indicatorHeight"/>
+        <attr name="indicatorColor" />
+    </declare-styleable>
+
+</resources>

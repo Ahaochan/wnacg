@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="preference_setting">设置</string>
+
+    <string name="preference_header_common">通用</string>
+    <string name="preference_item_web_site">访问站点</string>
+    <string name="preference_item_cellular_network_warning">移动网络警告</string>
+
+    <string name="preference_header_read">阅读</string>
+    <string name="preference_item_screen_orientation">屏幕方向</string>
+    <string name="preference_item_read_direction">翻页方向</string>
+    <string name="preference_item_key_screen_on">屏幕常亮</string>
+    <string name="preference_item_show_lock">显示时钟</string>
+    <string name="preference_item_show_progress">显示进度</string>
+    <string name="preference_item_show_battery">显示电量</string>
+
+    <string name="preference_header_download">下载</string>
+    <string name="preference_item_download_location">下载路径</string>
+    <string name="preference_item_invalid_download_location">无效的下载路径</string>
+    <string name="preference_item_cant_get_download_location">无法获取下载路径</string>
+    <string name="preference_item_multi_thread_download">下载线程数</string>
+    <string name="preference_item_multi_thread_download_summary">最多同时下载 %s 张图片</string>
+    <string name="preference_item_clear_memory_cache">清空缓存</string>
+</resources>

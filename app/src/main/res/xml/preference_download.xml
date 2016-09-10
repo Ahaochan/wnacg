@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <Preference
+        android:key="download_location"
+        android:summary="%s"
+        android:title="@string/preference_item_download_location" />
+
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="isOk"
+        android:summaryOff="关闭"
+        android:summaryOn="打开"
+        android:title="推送" />
+
+    <SwitchPreference
+        android:defaultValue="false"
+        android:key="autoRun"
+        android:summaryOff="关"
+        android:summaryOn="开"
+        android:title="自启动" />
+
+</PreferenceScreen>

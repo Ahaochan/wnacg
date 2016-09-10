@@ -1,6 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">16dp</dimen>
+    <!--margin-->
+    <dimen name="margin_medium">16dp</dimen>
+    <dimen name="margin_small">4dp</dimen>
+
+    <dimen name="margin_iconText">8dp</dimen>
+    <dimen name="margin_fab">16dp</dimen>
+    <dimen name="margin_card">8dp</dimen>
+    <dimen name="margin_cate">8dp</dimen>
+    <dimen name="margin_search_card">80dp</dimen>
+
+    <!-- Text size -->
+    <dimen name="text_super_large" >24sp</dimen>
+    <dimen name="text_large"       >22sp</dimen>
+    <dimen name="text_little_large">20sp</dimen>
+    <dimen name="text_medium"      >18sp</dimen>
+    <dimen name="text_little_small">16sp</dimen>
+    <dimen name="text_small"       >14sp</dimen>
+    <dimen name="text_super_small" >12sp</dimen>
+
+    <!-- Image size -->
+    <dimen name="image_thumb_height"  >88dp</dimen>
+    <dimen name="image_thumb_width"  >72dp</dimen>
+    <dimen name="image_thumbs_height"  >180dp</dimen>
+    <dimen name="image_albums_height" >128dp</dimen>
+    <dimen name="image_albums_width"  >88dp</dimen>
+    <dimen name="image_list_loading_size">152dp</dimen>
+
+    <!--padding-->
+    <dimen name="padding_medium">16dp</dimen>
+    <dimen name="padding_small">5dp</dimen>
+
+    <dimen name="padding_plant_title_left">24dp</dimen>
+    <dimen name="padding_plant_title_top">2dp</dimen>
+    <dimen name="padding_plant_title_right">24dp</dimen>
+    <dimen name="padding_plant_title_bottom">2dp</dimen>
+    <dimen name="padding_plant_more_right">24dp</dimen>
+
+    <!--nav-->
+    <dimen name="nav_header_height">176dp</dimen>
+
+    <!--other-->
+    <dimen name="toolbar_large_height">200dp</dimen>
+    <dimen name="elevation_normal">5dp</dimen>
+
+
+    <dimen name="gallery_left_right_width">60dp</dimen>
+
 
 
 </resources>

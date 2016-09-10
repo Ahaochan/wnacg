@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/albums_item"
+    style="@style/CardView.Light"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/margin_card"
+    android:layout_marginLeft="@dimen/margin_card"
+    android:layout_marginRight="@dimen/margin_card"
+    android:foreground="?attr/selectableItemBackground">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/albums_item_head"
+            style="@style/Image.Item.Albums"
+            android:layout_width="@dimen/image_albums_width"
+            android:layout_height="@dimen/image_albums_height"
+            android:src="@mipmap/ic_launcher" />
+
+
+        <TextView
+            android:id="@+id/albums_item_name"
+            style="@style/TextAppearance.Light.CardTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/albums_item_head"
+            android:layout_toRightOf="@id/albums_item_head"
+            android:maxLines="3"
+            android:text="@string/placeholder_comic_title" />
+
+        <TextView
+            android:id="@+id/albums_item_time"
+            style="@style/TextAppearance.Light.CardMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/albums_item_head"
+            android:layout_marginBottom="@dimen/margin_medium"
+            android:layout_toRightOf="@id/albums_item_head"
+            android:text="@string/placeholder_comic_time" />
+
+        <TextView
+            android:id="@+id/albums_item_pager"
+            style="@style/TextAppearance.Light.CardMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/albums_item_time"
+            android:layout_marginTop="18dp"
+            android:layout_toRightOf="@id/albums_item_head"
+            android:text="@string/placeholder_comic_pic_num" />
+
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

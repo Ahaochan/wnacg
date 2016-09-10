@@ -5,13 +5,12 @@
       <GradleProjectSettings>
         <option name="distributionType" value="LOCAL" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="gradleHome" value="D:\Android\Android Studio\gradle\gradle-2.10" />
+        <option name="gradleHome" value="D:\Android\Android Studio\gradle\gradle-2.14.1" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/androidlib" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/wnacgnet" />
           </set>
         </option>
         <option name="myModules">
@@ -19,7 +18,6 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/androidlib" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/wnacgnet" />
           </set>
         </option>
       </GradleProjectSettings>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="设置组1">
+        <EditTextPreference
+            android:dialogTitle="输入您的名字"
+            android:key="name"
+            android:singleLine="true"
+            android:summary="设置您的姓名"
+            android:title="姓名" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="设置组2">
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="isOk"
+            android:summaryOff="关闭"
+            android:summaryOn="打开"
+            android:title="推送" />
+
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="autoRun"
+            android:summaryOff="关"
+            android:summaryOn="开"
+            android:title="自启动" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

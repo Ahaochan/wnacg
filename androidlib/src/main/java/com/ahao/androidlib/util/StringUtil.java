@@ -1,42 +1,46 @@
 package com.ahao.androidlib.util;
 
 import android.support.annotation.NonNull;
-import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by Avalon on 2016/5/6.
  */
 public class StringUtil {
+    public static final int POSITIVE = 1;
+    public static final int NEGATIVE = -1;
+    public static final int ALL      = 0;
 
-    /**
-     *
-     * @param str       进行操作的字符串
-     * @param position  第几块数字字符串,0为返回全部数字字符串
-     * @return          返回第几块数字字符串,0为返回全部数字字符串
-     */
-    public static String getNumOfString(String str, int position){
+    /** 获取字符串str中第position块数字,0表示全部数字, 默认获取正数 */
+    public static String getIntOfString(String str, int position){
+        return getIntOfString(str, position, POSITIVE);
+    }
+
+    /** 获取字符串str中第position块数字,0表示全部数字 */
+    public static String getIntOfString(String str, int position, int sign){
         List<String> numList = new ArrayList<String>();
-        StringBuffer AllNum = new StringBuffer();
-        StringBuffer buffer = new StringBuffer();
-        for(int i = 0; i < str.length(); i++){
-            char ch = str.charAt(i);
-
-            if(ch>='0' && ch<='9'){
-                AllNum.append(ch);
-                buffer.append(ch);
-            } else {
-                if(!buffer.toString().equals("")) {
-                    numList.add(buffer.toString());
-                }
-                buffer.delete(0, buffer.length());
-            }
+        StringBuilder allNum = new StringBuilder();
+        String regular = null;
+        switch(sign){
+            case POSITIVE:regular = "(\\d+)"  ;break;
+            case NEGATIVE:regular = "(-\\d+)" ;break;
+            case ALL     :regular = "(-?\\d+)";break;
+            default:throw new UnsupportedOperationException("sign must be in {POSITIVE, NEGATIVE, ALL}");
         }
-        numList.add(buffer.toString());
+
+        Pattern pattern = Pattern.compile(regular);
+        Matcher matcher = pattern.matcher(str);
+        while(matcher.find()){
+            String group = matcher.group(1);
+            allNum.append(group);
+            numList.add(group);
+        }
         if(position == 0) {
-            return AllNum.toString();
+            return allNum.toString();
         } else {
             return numList.get(position-1);
         }
@@ -119,15 +123,5 @@ public class StringUtil {
             buffer.append(strs[i]);
         }
         return buffer.toString();
-    }
-
-    /**
-     *
-     * @param str       进行操作的字符串
-     * @param position  想要获得数字字符串长度的位置
-     * @return          返回第position块数字字符串的长度
-     */
-    public static int getNumLengthOfString(String str, int position){
-        return getNumOfString(str,position).length();
     }
 }

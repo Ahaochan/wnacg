@@ -4,28 +4,23 @@ package com.ahao.wnacg.common;
  * Created by Avalon on 2016/5/4.
  */
 public class Common {
-    public final static String www_wnacg_com = "http://www.wnacg.com";
-    public final static String www_wnacg_org = "http://www.wnacg.org";
-    public final static String m_wnacg_com = "http://m.wnacg.com";
-    public final static String m_wnacg_org = "http://m.wnacg.org";
+    public static final String DESKTOP  = "desktop";
+    public static final String MOBILE   = "mobile";
 
-    public final static String home_www_com_mobile = "www_com_mobile";
-    public final static String home_www_org_mobile = "www_org_mobile";
-    public final static String home_m_com_mobile = "m_com_mobile";
-    public final static String home_m_org_mobile = "m_org_mobile";
-    public final static String home_www_com_deskep = "www_com_desktop";
-    public final static String home_www_org_desktop = "www_org_desktop";
-    public final static String home_m_com_desktop = "m_com_desktop";
-    public final static String home_m_org_desktop = "m_org_desktop";
 
+    /** SharedPreference键值 */
+    public static final String KEY_WEB_SITE = "web_site";
+
+
+
+    /** Intent传输数据键值 */
+    public static final String ALBUMS_NAME = "albums_name";
+    public static final String ALBUMS_CATE = "albums_cate";
 
 
 
 
-    public final static int HOME_PLANT_NUM = 4;
-        public final static int PLANT_IMAGE_NUM    = 3;
-
-    public final static String COMIC_DATA = "ComicData";
-
+    public final static String COMIC_DATA = "ComicEntity";
+    //intent传输数据的tag
 
 }

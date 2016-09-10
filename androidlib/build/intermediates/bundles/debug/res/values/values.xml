@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr format="integer" name="autoScaleTime"/>
+    <attr format="color" name="indicatorColor"/>
+    <attr format="dimension" name="indicatorHeight"/>
+    <attr format="float" name="maxScaleFactor"/>
+    <attr format="float" name="minScaleFactor"/>
+    <declare-styleable name="GalleryView"><attr name="minScaleFactor"/><attr name="maxScaleFactor"/><attr name="autoScaleTime"/></declare-styleable>
+    <declare-styleable name="Indicating"><attr name="indicatorHeight"/><attr name="indicatorColor"/></declare-styleable>
+    <string name="app_name">AndroidLib</string>
+</resources>
